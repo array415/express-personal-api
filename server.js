@@ -21,6 +21,15 @@ app.use(function(req, res, next) {
 
 // var db = require('./models');
 
+var profile = [
+  {name: 'Aaron',
+   github: 'https://github.com/array415',
+   city: 'San Francisco',
+   pets: [{name: 'Dottie', type: 'Chihuaha'},
+          {name: 'Stormy aka. Little Fat', type: 'Siamese'}
+         ]
+   }];
+
 /**********
  * ROUTES *
  **********/
@@ -54,9 +63,13 @@ app.get('/api', function api_index(req, res) {
       {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
       {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
     ]
-  })
+  });
 });
 
+
+app.get('/api/profile', function (req, res) {
+  res.json(profile);
+});
 /**********
  * SERVER *
  **********/

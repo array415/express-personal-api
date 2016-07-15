@@ -13,3 +13,14 @@
 //   console.log("Created new campsite", campsite._id)
 //   process.exit(); // we're all done! Exit the program.
 // })
+
+
+
+var profile = [
+  {name: 'Aaron',
+   github: 'https://github.com/array415',
+   city: 'San Francisco',
+   pets: [{name: 'Dottie'},
+          {type: 'Chihuaha'}
+         ]
+   }];
