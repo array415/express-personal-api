@@ -30,6 +30,26 @@ var profile =
          ]
    };
 
+var ausAnimals = [{name: 'Koala',
+                   test: 'testOne',
+                   id: 1
+                   },
+                  {name: 'Emu',
+                   test: 'testOne',
+                   id: 2},
+                  {name: 'Kangaroo',
+                   test: 'testOne',
+                   id: 3},
+                  {name: 'Quokka',
+                   test: 'testOne',
+                   id: 4},
+                  {name: 'Echidna',
+                   test: 'testOne',
+                   id: 5},
+                  {name: 'Wallaby',
+                   test: 'testOne',
+                   id: 6}
+                ];
 
 /**********
  * ROUTES *
@@ -55,7 +75,7 @@ app.get('/', function homepage(req, res) {
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
-    profile: "https://secret-temple-93426.herokuapp.com/api/profile", // CHANGE ME ;)
+     // CHANGE ME ;)
     message: "Welcome to my personal api! Here's what you need to know!",
     documentation_url: "https://github.com/array415/express-personal-api", // CHANGE ME
     base_url: "https://secret-temple-93426.herokuapp.com/", // CHANGE ME
@@ -70,6 +90,16 @@ app.get('/api', function api_index(req, res) {
 
 app.get('/api/profile', function (req, res) {
   res.json(profile);
+});
+
+app.get('/api/animals', function (req, res) {
+  res.json(ausAnimals);
+});
+
+app.get('/api/animals/:id', function (req, res){
+  var animal = req.params.id;
+  res.json(ausAnimals[animal]);
+
 });
 /**********
  * SERVER *
