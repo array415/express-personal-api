@@ -82,24 +82,35 @@ app.get('/api', function api_index(req, res) {
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "GET", path: "/api/animals", description: "List all Australian animals"},
+      {method: "GET", path: "/api/animals/:id", description: "Find one animal"}
+       // CHANGE ME
     ]
   });
 });
 
-
+//get my profile
 app.get('/api/profile', function (req, res) {
   res.json(profile);
 });
-
+//get all animals
 app.get('/api/animals', function (req, res) {
   res.json(ausAnimals);
 });
-
+//get animal by id #
 app.get('/api/animals/:id', function (req, res){
   var animal = req.params.id;
   res.json(ausAnimals[animal]);
 
+});
+
+app.post('/api/animals', function (req, res){
+  var x = ausAnimals.push({name: 'wow', test: 'testOne', id: '7'});  // change hard value to input values
+  res.json(ausAnimals);
+});
+
+app.delete('/api/animals/:id', function (req, res){
+  res.send('deleted');
 });
 /**********
  * SERVER *
