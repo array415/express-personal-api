@@ -21,14 +21,15 @@ app.use(function(req, res, next) {
 
 // var db = require('./models');
 
-var profile = [
+var profile =
   {name: 'Aaron',
    github: 'https://github.com/array415',
    city: 'San Francisco',
    pets: [{name: 'Dottie', type: 'Chihuaha'},
           {name: 'Stormy aka. Little Fat', type: 'Siamese'}
          ]
-   }];
+   };
+
 
 /**********
  * ROUTES *
@@ -54,10 +55,10 @@ app.get('/', function homepage(req, res) {
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
-    woops_i_has_forgot_to_document_all_my_endpoints: true, // CHANGE ME ;)
+    profile: "https://secret-temple-93426.herokuapp.com/api/profile", // CHANGE ME ;)
     message: "Welcome to my personal api! Here's what you need to know!",
-    documentation_url: "https://github.com/example-username/express_self_api/README.md", // CHANGE ME
-    base_url: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
+    documentation_url: "https://github.com/array415/express-personal-api", // CHANGE ME
+    base_url: "https://secret-temple-93426.herokuapp.com/", // CHANGE ME
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
