@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
-// var db = require('./models');
+var db = require('./models');
 
 var profile =
   {name: 'Aaron',
@@ -30,26 +30,29 @@ var profile =
          ]
    };
 
-var ausAnimals = [{name: 'Koala',
-                   test: 'testOne',
-                   id: 1
-                   },
-                  {name: 'Emu',
-                   test: 'testOne',
-                   id: 2},
-                  {name: 'Kangaroo',
-                   test: 'testOne',
-                   id: 3},
-                  {name: 'Quokka',
-                   test: 'testOne',
-                   id: 4},
-                  {name: 'Echidna',
-                   test: 'testOne',
-                   id: 5},
-                  {name: 'Wallaby',
-                   test: 'testOne',
-                   id: 6}
-                ];
+// var ausAnimals = [{name: 'Koala',
+//                    test: 'testOne',
+//                    id: 1
+//                    },
+//                   {name: 'Emu',
+//                    test: 'testOne',
+//                    id: 2},
+//                   {name: 'Kangaroo',
+//                    test: 'testOne',
+//                    id: 3,
+//                    img: 'https://en.wikipedia.org/wiki/Kangaroo#/media/File:Kangur.rudy.drs.jpg'},
+//                   {name: 'Quokka',
+//                    test: 'testOne',
+//                    id: 4},
+//                   {name: 'Echidna',
+//                    test: 'testOne',
+//                    id: 5,
+//                    img: 'https://en.wikipedia.org/wiki/Echidna#/media/File:Long-beakedEchidna.jpg'},
+//                   {name: 'Wallaby',
+//                    test: 'testOne',
+//                    id: 6,
+//                    img: 'https://en.wikipedia.org/wiki/Wallaby#/media/File:Macropus_agilis.jpg'}
+//                 ];
 
 /**********
  * ROUTES *
@@ -95,23 +98,34 @@ app.get('/api/profile', function (req, res) {
 });
 //get all animals
 app.get('/api/animals', function (req, res) {
-  res.json(ausAnimals);
+  db.Animal.find(function(err, animals){
+    if(err){
+      return "error " + err;
+    }
+    res.json(animals);
+  });
 });
-//get animal by id #
+// //get animal by id #
 app.get('/api/animals/:id', function (req, res){
-  var animal = req.params.id;
-  res.json(ausAnimals[animal]);
+  var animalId = req.params.id;
+  db.Animal.findOne({id: animalId}, function(err, animals){
+    res.json(animals);
+  });
 
 });
-
-app.post('/api/animals', function (req, res){
-  var x = ausAnimals.push({name: 'wow', test: 'testOne', id: '7'});  // change hard value to input values
-  res.json(ausAnimals);
-});
-
-app.delete('/api/animals/:id', function (req, res){
-  res.send('deleted');
-});
+// //add animals
+// app.post('/api/animals', function (req, res){
+//    ausAnimals.push({name: 'wow', test: 'testOne', id: '7'});  // change hard value to input values
+//   res.json(ausAnimals);
+// });
+// //delete by id
+// app.delete('/api/animals/:id', function (req, res){
+//   res.send('deleted');
+// });
+//
+// app.put('/api/animals/:id', function (req, res){
+//
+// });
 /**********
  * SERVER *
  **********/
