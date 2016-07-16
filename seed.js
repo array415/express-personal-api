@@ -14,33 +14,46 @@ var db = require('./models');
 //   process.exit(); // we're all done! Exit the program.
 // })
 
-var ausAnimals = [{name: 'Koala',
-                   test: 'testOne',
-                   id: 1
-                   },
-                  {name: 'Emu',
-                   test: 'testOne',
-                   id: 2},
-                  {name: 'Kangaroo',
-                   test: 'testOne',
-                   id: 3,
-                   img: 'https://en.wikipedia.org/wiki/Kangaroo#/media/File:Kangur.rudy.drs.jpg'},
-                  {name: 'Quokka',
-                   test: 'testOne',
-                   id: 4},
-                  {name: 'Echidna',
-                   test: 'testOne',
-                   id: 5,
-                   img: 'https://en.wikipedia.org/wiki/Echidna#/media/File:Long-beakedEchidna.jpg'},
-                  {name: 'Wallaby',
-                   test: 'testOne',
-                   id: 6,
-                   img: 'https://en.wikipedia.org/wiki/Wallaby#/media/File:Macropus_agilis.jpg'}
+var ausAnimals = [{
+                   name: 'Koala',
+                   fact: 'Sleeps 18 to 20 hours a day',
+                   gif: 'http://i.giphy.com/n2zM47kbTZP6o.gif'
+                  },
+                  {
+                   name: 'Emu',
+                   fact: 'Emus swallow large pebbles to help their stomach grind up food.',
+                   gif: 'http://i.giphy.com/gMe3JlwaLB5AI.gif'
+                  },
+                  {
+                   name: 'Kangaroo',
+                   fact: 'There are more kangaroos than humans in Australia',
+                   gif: 'http://i.giphy.com/yTVe3xfjFyLIY.gif'
+                  },
+                  {
+                    name: 'Quokka',
+                    fact: 'You can go to jail for touching a Quokka',
+                    gif: 'http://i.giphy.com/E6AKG0k1r2vx6.gif'
+                  },
+                  {
+                   name: 'Echidna',
+                   fact: 'One of two egg laying mammals',
+                   gif: 'http://i.giphy.com/TcqxrHaty9tCw.gif'
+                  },
+                  {
+                   name: 'Platypus',
+                   fact: 'Two of two egg laying mammals',
+                   gif: 'http://i.giphy.com/10lCPCuuTihvSU.gif'
+                  },
+                   {name: 'Drop Bear',
+                    fact: 'Vegemite is a natural deterant',
+                    gif: 'http://i.giphy.com/nLAHHLbJWl6lW.gif'
+                  }
                 ];
 
 db.Animal.remove({}, function(err, animals){
   console.log('removed all animals');
-})
+});
+
 db.Animal.create(ausAnimals, function(err, ausAnimals){
   if(err){
     return "error thrown " + err;

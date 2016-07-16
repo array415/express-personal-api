@@ -30,30 +30,6 @@ var profile =
          ]
    };
 
-// var ausAnimals = [{name: 'Koala',
-//                    test: 'testOne',
-//                    id: 1
-//                    },
-//                   {name: 'Emu',
-//                    test: 'testOne',
-//                    id: 2},
-//                   {name: 'Kangaroo',
-//                    test: 'testOne',
-//                    id: 3,
-//                    img: 'https://en.wikipedia.org/wiki/Kangaroo#/media/File:Kangur.rudy.drs.jpg'},
-//                   {name: 'Quokka',
-//                    test: 'testOne',
-//                    id: 4},
-//                   {name: 'Echidna',
-//                    test: 'testOne',
-//                    id: 5,
-//                    img: 'https://en.wikipedia.org/wiki/Echidna#/media/File:Long-beakedEchidna.jpg'},
-//                   {name: 'Wallaby',
-//                    test: 'testOne',
-//                    id: 6,
-//                    img: 'https://en.wikipedia.org/wiki/Wallaby#/media/File:Macropus_agilis.jpg'}
-//                 ];
-
 /**********
  * ROUTES *
  **********/
@@ -99,6 +75,7 @@ app.get('/api/profile', function (req, res) {
 //get all animals
 app.get('/api/animals', function (req, res) {
   db.Animal.find(function(err, animals){
+    console.log(animals);
     if(err){
       return "error " + err;
     }
@@ -106,10 +83,10 @@ app.get('/api/animals', function (req, res) {
   });
 });
 // //get animal by id #
-app.get('/api/animals/:id', function (req, res){
-  var animalId = req.params.id;
-  db.Animal.findOne({id: animalId}, function(err, animals){
-    res.json(animals);
+app.get('/api/animals/:_id', function (req, res){
+  var animalId = req.params._id;
+  db.Animal.findOne({_id: animalId}, function(err, animal){
+    res.json(animal);
   });
 
 });

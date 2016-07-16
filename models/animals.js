@@ -4,8 +4,8 @@ var Schema = mongoose.Schema;
 var animalSchema = new Schema({
   id: String,
   name: String,
-  img: String,
-  description: String
+  gif: String,
+  fact: String
 
 });
 
