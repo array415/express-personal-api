@@ -28,8 +28,12 @@ h1 {
 
 .testing{
   width: 70%;
-  margin-left: 10%;
+  margin-left: 15%;
   margin-top: 5px;
   background-color: white;
   border: 2px black solid;
+}
+
+.createNew{
+  text-align: center;
 }

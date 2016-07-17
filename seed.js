@@ -17,19 +17,19 @@ var db = require('./models');
 var ausAnimals = [{
                    name: 'Koala',
                    fact: 'Sleeps 18 to 20 hours a day and smells like cough drops',
-                   endangered: true,
+                   Diet: 'Eucalyptus Leaves',
                    gif: 'http://i.giphy.com/n2zM47kbTZP6o.gif'
                   },
                   {
                    name: 'Emu',
                    fact: 'Emus swallow large pebbles to help their stomach grind up food.',
-                   endangered: false,
+                   diet: '',
                    gif: 'http://i.giphy.com/gMe3JlwaLB5AI.gif'
                   },
                   {
                    name: 'Kangaroo',
                    fact: 'There are more kangaroos than humans in Australia',
-                   endangered: false,
+                   diet: 'Herbivore',
                    gif: 'http://i.giphy.com/yTVe3xfjFyLIY.gif'
                   },
                   {
@@ -52,8 +52,9 @@ var ausAnimals = [{
                   },
                    {name: 'Drop Bear',
                     fact: 'Vegemite is a natural deterant',
-                    gif: 'http://i.giphy.com/nLAHHLbJWl6lW.gif',
-                    endangered: false
+                    diet: 'Tourists',
+                    gif: 'http://i.giphy.com/nLAHHLbJWl6lW.gif'
+
                   }
                 ];
 

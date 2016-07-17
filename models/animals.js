@@ -5,7 +5,7 @@ var animalSchema = new Schema({
   name: String,
   gif: String,
   fact: String,
-  endangered: Boolean
+  diet: String
 });
 
 var Animal = mongoose.model('Animal', animalSchema);
