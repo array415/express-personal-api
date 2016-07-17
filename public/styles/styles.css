@@ -8,3 +8,29 @@ h1 {
   margin-top: 100px;
   text-align: center;
 }
+
+
+.testing{
+  background-color: red;
+  width: 300px;
+  height: 300px;;
+}
+
+.gifResize{
+  height: 200px;
+  width: 100%;
+  display: block;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px black solid;
+
+}
+
+
+.animalDiv{
+  border: 2px black solid;
+  height: 10%;
+  margin: 4px;
+  background-color: white;
+}

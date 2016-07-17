@@ -16,7 +16,7 @@ var db = require('./models');
 
 var ausAnimals = [{
                    name: 'Koala',
-                   fact: 'Sleeps 18 to 20 hours a day',
+                   fact: 'Sleeps 18 to 20 hours a day and smells like cough drops',
                    gif: 'http://i.giphy.com/n2zM47kbTZP6o.gif'
                   },
                   {
@@ -42,7 +42,7 @@ var ausAnimals = [{
                   {
                    name: 'Platypus',
                    fact: 'Two of two egg laying mammals',
-                   gif: 'http://i.giphy.com/10lCPCuuTihvSU.gif'
+                   gif: 'http://i.giphy.com/w8jZINLNDD4aI.gif'
                   },
                    {name: 'Drop Bear',
                     fact: 'Vegemite is a natural deterant',

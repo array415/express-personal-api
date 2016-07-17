@@ -75,7 +75,6 @@ app.get('/api/profile', function (req, res) {
 //get all animals
 app.get('/api/animals', function (req, res) {
     db.Animal.find(function(err, animals){
-    console.log(animals);
     if(err){
       return "error " + err;
     }
@@ -93,17 +92,13 @@ app.get('/api/animals/:_id', function (req, res){
 //add animals
 app.post('/api/animals', function (req, res){
   var newAnimal = new db.Animal(req.body);
-
   newAnimal.save(function(err, animal){
     if(err){
       console.log("error" + err);
     }
-    console.log('created new ' + animal.name);
-
+    res.json(animal);
   });
 });
-
-
 // //delete by id
 app.delete('/api/animals/:_id', function (req, res){
   var removeAnimal = req.params._id;
@@ -111,10 +106,16 @@ app.delete('/api/animals/:_id', function (req, res){
     res.send('removed ' + removedAnimal);
   });
 });
-
-// app.put('/api/animals/:id', function (req, res){
-//
-// });
+//edit gif
+app.put('/api/animals/:_id', function (req, res){
+  var animalPicked = req.params._id;
+  db.Animal.findOne({_id: animalPicked}, function(err, animal){
+    animal.gif = req.body.gif;
+    animal.save(function(err, savedAnimal){
+      res.json(savedAnimal);
+    });
+  });
+});
 /**********
  * SERVER *
  **********/
