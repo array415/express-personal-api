@@ -23,6 +23,16 @@ $(document).ready(function(){
     });
   });
 
+  $('.delete').on('click', function(e){
+    console.log(this._id);
+    console.log('wow');
+    $.ajax({
+      method: 'DELETE',
+      url:'/api/animals/' + this._id,
+      success: deleteSuccess
+    });
+  });
+
 function success(data){
   allAnimals = data;
   render();
@@ -35,6 +45,13 @@ function newAnimal(animal){
 
   console.log(animal);
   console.log(allAnimals);
+}
+
+function deleteSuccess(deleteAnimal){
+  console.log(this._id);
+  console.log(deleteAnimal._id);
+  this.remove();
+  console.log('ok');
 }
 
 function render() {

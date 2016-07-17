@@ -10,27 +10,26 @@ h1 {
 }
 
 
-.testing{
-  background-color: red;
-  width: 300px;
-  height: 300px;;
-}
-
 .gifResize{
-  height: 200px;
-  width: 100%;
-  display: block;
-  margin-top: 5px;
-  margin-left: auto;
-  margin-right: auto;
+  height: 150px;
+  width: 150px;
   border: 1px black solid;
 
 }
 
 
-.animalDiv{
-  border: 2px black solid;
-  height: 10%;
-  margin: 4px;
+
+.animalHolder{
+  margin-left: 5px;
+  text-align: center;
+
+}
+
+
+.testing{
+  width: 70%;
+  margin-left: 10%;
+  margin-top: 5px;
   background-color: white;
+  border: 2px black solid;
 }
