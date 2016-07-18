@@ -32,35 +32,43 @@
     <input type="text" name="fact" placeholder="New Animal Fact!" required="">
     <input type="text" name="diet" placeholder="Add a Diet!" required="">
     <input type="text" name="gif" placeholder="Awesome Animal Gif!" required="">
-    <input class="test" type="submit" name="submit" value="Submit Buttons">
+    <input type="text" name="wiki" placeholder="Wiki Link!" required="">
+    <input class="test" type="submit" name="submit" value="Create New">
   </form>
 
-   <div class="animalHolder">
+  <!-- <form class="editAnimal" action="index.html">
+    <input type="text" name="_id" value="" placeholder="Animal Id!">
+    <input type="text" name="gif" value="" placeholder="New Gif!">
+    <input type="submit" name="submit" value="Change Gif!">
+  </form> -->
+
+  <div id="animalHolder">
 
 
-  <script class="template" type="text/x-handlebars-template">
-  {{#each animal}}
-    <div class='row testing'>
-    <div class='col-sm-2'>
-    <img class='gifResize' src='{{gif}}'>
-    </div>
-    <div class="col-sm-9">
-    <h3>The {{name}}</h3>
-    <p>
-        <b>Fun fact!</b> - {{fact}} <br>
-        <b>Endangered?</b> - {{endangered}}
-    </p>
+    <script class="template" type="text/x-handlebars-template">
+      {{#each animal}}
+      <div class='row testing'>
+        <div class='col-sm-2'>
+          <img class='gifResize' src='{{gif}}'>
+        </div>
+        <div class="col-sm-9">
+          <h3>The {{name}}</h3>
+          <p>
+            <b>Fun fact!</b> - {{fact}} <br>
+            <b>Diet?</b> - {{diet}} <br>
+          </p>
+          <a href='{{wiki}}'> Learn More! </a>
+        </div>
+        <div class='col-sm-1 testing2'>
+          <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
+        </div>
+      </div>
+      {{/each}}
+
+    </script>
+
+
   </div>
-  <div class='col-sm-1 testing2'>
-    <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
-  </div>
-   </div>
-    {{/each}}
-
-  </script>
-
-
-</div>
 
 </body>
 </html>

@@ -2,13 +2,15 @@ body {
   color: #333;
   font-family: Helvetica, Arial, sans-serif;
   background-color: skyblue; /* Sanity Check! */
+  background-image: url('http://www.hdwallpapersnews.com/wp-content/uploads/2015/02/Australian-Flag-1920x1080-HD-Wallpaper.jpg');
+  background-size: cover;
 }
 
 h1 {
   margin-top: 100px;
   text-align: center;
+  text-shadow: white 2px 2px;
 }
-
 
 .gifResize{
   height: 150px;
@@ -17,14 +19,11 @@ h1 {
 
 }
 
-
-
 .animalHolder{
   margin-left: 5px;
   text-align: center;
 
 }
-
 
 .testing{
   width: 70%;

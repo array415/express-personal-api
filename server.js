@@ -55,15 +55,16 @@ app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
      // CHANGE ME ;)
-    message: "Welcome to my personal api! Here's what you need to know!",
+    message: "This is my first attempt at a personal API it's currently about my favourite Australian Animals",
     documentation_url: "https://github.com/array415/express-personal-api", // CHANGE ME
     base_url: "https://secret-temple-93426.herokuapp.com/", // CHANGE ME
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
+      {method: "GET", path: "/api/profile", description: "Data about me"},
       {method: "GET", path: "/api/animals", description: "List all Australian animals"},
-      {method: "GET", path: "/api/animals/:id", description: "Find one animal"}
-       // CHANGE ME
+      {method: "GET", path: "/api/animals/:id", description: "Find one animal"},
+      {method: "POST", path: "/api/animals", description: 'Add a new animal'},
+      {method: "DELETE", path: "/api/animals/:_id", description: "Remove an animal"}
     ]
   });
 });

@@ -4,7 +4,7 @@ console.log("Sanity Check: JS is working!");
 
 $(document).ready(function(){
   var allAnimals = [];
-  var $animalsList = $('.animalHolder');
+  var $animalsList = $('#animalHolder');
   var template;
 
   var source = $('.template').html();
@@ -26,35 +26,44 @@ $(document).ready(function(){
     });
   });
 
-  $animalsList.on('click', '.deleteBtn', function() {
+  $animalsList.on('click', '.deleteBtn', function(){
     $.ajax({
       method: 'DELETE',
-      url: '/api/animals/'+$(this).attr('data-id'),
-      success: deleteBookSuccess,
-      error: function(){
-        console.log('error');
-      }
+      url: '/api/animals/'+ $(this).attr('data-id'),
+      success: deleteSuccess,
+      error: error
     });
   });
+
 
   function success(data){
     allAnimals = data;
     render();
   }
 
+  function error(){
+    console.log('nah');
+  }
+
   function newAnimal(animal){
-    // $('.createNew input').val('');
+    console.log(animal);
     allAnimals.push(animal);
     render();
   }
 
-  function deleteBookSuccess(json) {
-    var animal = json;
+  function deleteSuccess(json){
+    var animal = json;              
     var animalId = animal._id;
-    console.log('wow');
-    allAnimals.splice(0, 1);
+
+    for(var i = 0; i < allAnimals.length; i++){
+      if(allAnimals[i]._id === animalId) {
+        allAnimals.splice(i, 1);
+        break;
+      }
+    }
     render();
   }
+
 
   function render() {
     $animalsList.empty();
